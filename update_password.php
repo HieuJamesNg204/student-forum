@@ -4,8 +4,7 @@ include 'includes/db.php';
 include 'includes/functions.php';
 
 if (!isset($_SESSION['user_id'])) {
-    // Redirect to login page when user is not logged in
-    header("Location: login.php");
+    header("Location: intro.php");
     exit();
 }
 

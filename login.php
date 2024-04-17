@@ -9,7 +9,7 @@
 <body>
 
 <div class="container mt-5">
-    <h2>Login</h2>
+    <h2>Log in</h2>
     <form action="process_login.php" method="post">
         <div class="form-group">
             <label for="username">Username</label>
@@ -19,7 +19,7 @@
             <label for="password">Password</label>
             <input type="password" class="form-control" id="password" name="password" required>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Log in</button>
     </form>
     <p class="mt-3">Forgot password? <a href="forgot_password.php">Change password</a>.</p>
     <p class="mt-3">Don't have an account? <a href="register.php">Register here</a>.</p>
