@@ -39,12 +39,6 @@ function updateUser($userId, $username, $email) {
     return $stmt->execute(['userId' => $userId, 'username' => $username, 'email' => $email]);
 }
 
-function deleteUser($userId) {
-    global $pdo;
-    $stmt = $pdo->prepare("DELETE FROM users WHERE id = :userId");
-    return $stmt->execute(['userId' => $userId]);
-}
-
 function addModule($moduleName) {
     global $pdo;
     $stmt = $pdo->prepare("INSERT INTO modules (module_name) VALUES (:moduleName)");
@@ -77,22 +71,10 @@ function updateModule($moduleId, $moduleName) {
     return $stmt->execute(['moduleId' => $moduleId, 'moduleName' => $moduleName]);
 }
 
-function deleteModule($moduleId) {
-    global $pdo;
-    $stmt = $pdo->prepare("DELETE FROM modules WHERE id = :moduleId");
-    return $stmt->execute(['moduleId' => $moduleId]);
-}
-
 function addPost($userId, $moduleId, $title, $content, $image) {
     global $pdo;
     $stmt = $pdo->prepare("INSERT INTO posts (user_id, module_id, title, content, image) VALUES (:userId, :moduleId, :title, :content, :image)");
     return $stmt->execute(['userId' => $userId, 'moduleId' => $moduleId, 'title' => $title, 'content' => $content, 'image' => $image]);
-}
-
-function getPosts() {
-    global $pdo;
-    $stmt = $pdo->query("SELECT * FROM posts");
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getPostById($postId) {
@@ -114,12 +96,6 @@ function getPostsByUser($userId) {
     $stmt = $pdo->prepare("SELECT * FROM posts WHERE user_id = :userId");
     $stmt->execute(['userId' => $userId]);
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function updatePost($postId, $userId, $moduleId, $title, $content, $image = '') {
-    global $pdo;
-    $stmt = $pdo->prepare("UPDATE posts SET user_id = :userId, module_id = :moduleId, title = :title, content = :content, image = :image WHERE id = :postId");
-    return $stmt->execute(['postId' => $postId, 'userId' => $userId, 'moduleId' => $moduleId, 'title' => $title, 'content' => $content, 'image' => $image]);
 }
 
 function getCommentsForPost($postId) {

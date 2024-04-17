@@ -6,7 +6,8 @@ include 'includes/db.php';
 $query = "SELECT posts.*, users.username, modules.module_name
           FROM posts 
           INNER JOIN users ON posts.user_id = users.id
-          INNER JOIN modules ON posts.module_id = modules.id";
+          INNER JOIN modules ON posts.module_id = modules.id
+          ORDER BY created_at DESC";
 $result = $pdo->query($query);
 
 // Display posts
