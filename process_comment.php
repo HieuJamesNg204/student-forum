@@ -24,5 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["post_id"]) && isset($_
         echo "<script>alert('Apology for an error while adding a comment! You can try again.'); window.location.href='index.php';</script>";
         exit();
     }
+} else {
+    echo "<script>alert('Post ID and content are not provided'); window.location.href='index.php';</script>";
+    exit();
 }
 ?>

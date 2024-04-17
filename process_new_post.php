@@ -44,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["title"]) && isset($_PO
         exit();
     }
 } else {
-    // Redirect to index if form fields are not provided
     echo "<script>alert('Title and content are not provided'); window.location.href='new_post.php';</script>";
     exit();
 }

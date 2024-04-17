@@ -69,8 +69,6 @@ if ($result->rowCount() > 0) {
             }
         }
 
-        //echo '</div>';
-
         // Comment form
         echo '<div style="max-width: 1100px; margin: auto; padding-top: 10px; padding-bottom: 10px">';
         echo '<form action="process_comment.php" method="post">';
