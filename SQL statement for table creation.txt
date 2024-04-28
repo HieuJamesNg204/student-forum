@@ -1,0 +1,41 @@
+-- Create the database
+CREATE DATABASE IF NOT EXISTS student_forum;
+
+-- Use the database
+USE student_forum;
+
+-- Create the users table
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL
+);
+
+-- Create the modules table
+CREATE TABLE IF NOT EXISTS modules (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    module_name VARCHAR(100) NOT NULL
+);
+
+-- Create the posts table
+CREATE TABLE IF NOT EXISTS posts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    module_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL,
+    image VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (module_id) REFERENCES modules(id)
+);
+
+CREATE TABLE answer (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT,
+    user_id INT,
+    content TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (post_id) REFERENCES posts(id),
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
