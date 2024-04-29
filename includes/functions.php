@@ -12,9 +12,10 @@ function addUser($username, $email, $password) {
     global $pdo;
     $hashed = password_hash($password, PASSWORD_DEFAULT);
     $rowCount = getUsersRowCount();
-    $role = "user";
-    if ($rowCount == 0) {
+    if ($rowCount["Row_Count"] == 0) {
         $role = "admin";
+    } else {
+        $role = "user";
     }
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password, role) VALUES (:username, :email, :password, :role)");
     $stmt->bindParam(':username', $username);
