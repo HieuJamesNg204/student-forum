@@ -1,10 +1,21 @@
 <?php
 include 'db.php';
 
+function getUsersRowCount() {
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT COUNT(*) AS Row_Count FROM users");
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
+}
+
 function addUser($username, $email, $password) {
     global $pdo;
     $hashed = password_hash($password, PASSWORD_DEFAULT);
-    $role = 'user';
+    $rowCount = getUsersRowCount();
+    $role = "user";
+    if ($rowCount == 0) {
+        $role = "admin";
+    }
     $stmt = $pdo->prepare("INSERT INTO users (username, email, password, role) VALUES (:username, :email, :password, :role)");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':email', $email);

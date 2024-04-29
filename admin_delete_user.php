@@ -27,6 +27,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["userId"])) {
         $stmt->execute();
     }
 
+    $query = "DELETE FROM answer WHERE user_id = :userId";
+    $stmt = $pdo->prepare($query);
+    $stmt->bindParam(':userId', $userId);
+    $stmt->execute();
+
     $query = "DELETE FROM posts WHERE user_id = :userId";
     $stmt = $pdo->prepare($query);
     $stmt->execute(['userId' => $userId]);
