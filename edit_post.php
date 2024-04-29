@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["postId"])) {
 <body>
 
 <div class="container mt-5">
-    <button class="btn btn-primary btn-sm" onclick="backIndex()">< Home page</button>
+    <button class="btn btn-primary btn-sm" onclick="window.location.href = 'index.php';">< Home page</button>
     <h2>Edit Post</h2>
     <form action="process_edit_post.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="postId" value="<?php echo $postId; ?>">
@@ -71,6 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["postId"])) {
     </form>
 </div>
 
-<script src="js/back_home.js"></script>
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>

@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['commentId'])) {
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <button class="btn btn-primary btn-sm" onclick="backIndex()" style="margin-bottom: 25px;">< Home page</button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href = 'index.php';" style="margin-bottom: 25px;">< Home page</button>
             <div class="card">
                 <div class="card-header">
                     Edit Comment
@@ -63,7 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['commentId'])) {
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/back_home.js"></script>
 
 </body>
 </html>

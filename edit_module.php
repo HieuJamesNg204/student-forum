@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["moduleId"])) {
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <button class="btn btn-primary btn-sm" onclick="backModulePage()" style="margin-bottom: 25px;">< Back</button>
+            <button class="btn btn-primary btn-sm" onclick="window.location.href = 'modules.php';" style="margin-bottom: 25px;">< Back</button>
             <div class="card">
                 <div class="card-header">
                     Edit Module
@@ -62,7 +62,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["moduleId"])) {
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="js/back_home.js"></script>
 
 </body>
 </html>
